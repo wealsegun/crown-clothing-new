@@ -1,5 +1,6 @@
 import { async } from "@firebase/util";
 import { useState } from "react";
+import FormInput from "../form-input/form-input.component";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -23,8 +24,8 @@ const SignUp = () => {
     }
 
     const resetFormFields = () => {
-        setFormFields(signUpForm);
-    }
+      setFormFields(signUpForm);
+    };
     try {
       const { user } = await createAuthUserWithEmailAndPassword(
         email,
@@ -59,18 +60,19 @@ const SignUp = () => {
       <h1> Sign up with your email and password</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Display Name</label>
-          <input
+          <FormInput
+            label={"Display Name"}
             type="text"
             required
             onChange={handleChange}
             name="displayName"
             value={displayName}
           />
+         
         </div>
         <div>
-          <label>Email</label>
-          <input
+          <FormInput
+           label={"Email"}
             type="email"
             required
             onChange={handleChange}
@@ -79,8 +81,8 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label>Password</label>
-          <input
+          <FormInput
+            label={'Password'}
             type="password"
             required
             onChange={handleChange}
@@ -89,8 +91,8 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label>Confirm Password</label>
-          <input
+          <FormInput
+          label={'Confirm Password'}
             required
             type="password"
             onChange={handleChange}
