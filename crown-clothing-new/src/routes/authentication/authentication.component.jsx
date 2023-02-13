@@ -11,24 +11,24 @@ import SignInForm from "../../components/signin-form/signin-form.component";
 // import { async } from "@firebase/util";cons
 
 const Authentication = () => {
-  useEffect(() => {
-   ( async() => {
-        const response = await getRedirectResult(auth);
-        console.log(response);
-        if(response)
-         {
-            const userDocRef = await createUserDocumentFromAuth(response.user);
-            console.log(userDocRef);
-         }
-  })();
-  }, []);
+  // useEffect(() => {
+  //  ( async() => {
+  //       const response = await getRedirectResult(auth);
+  //       console.log(response);
+  //       if(response)
+  //        {
+  //           const userDocRef = await createUserDocumentFromAuth(response.user);
+  //           console.log(userDocRef);
+  //        }
+  // })();
+  // }, []);
 
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-    console.log(userDocRef);
-  };
+  // const logGoogleUser = async () => {
+  //   const { user } = await signInWithGooglePopup();
+  //   const userDocRef = await createUserDocumentFromAuth(user);
+  //   console.log(userDocRef);
+  // };
 
   //   const SignInRedirect = async() => {
   //     const { user } = await signInWithGoogleRedirect();
