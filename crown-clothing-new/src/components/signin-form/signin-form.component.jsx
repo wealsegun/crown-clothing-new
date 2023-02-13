@@ -27,13 +27,31 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleLogin = async (event) => {
+    console.log(event);
     event.preventDefault();
+    console.log(formFields);
     try {
       const response = await signInAuthWithEmailAndPassword(email, password);
       console.log(response);
       resetFormFields();
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.code);
+      switch (error.code) {
+        case "auth/wrong-password":
+          alert("incorrect password for email");
+
+          break;
+        case "auth/user-not-found":
+          alert("no user associated with this email");
+
+          break;
+
+        default:
+          console.log(error);
+          break;
+      }
+    }
   };
 
   useEffect(() => {
@@ -55,10 +73,10 @@ const SignInForm = () => {
 
   return (
     <div className="sign-in-container">
-      <h1>Sign In Page</h1>
-      {/* <h2>Don't have an account</h2> */}
+      {/* <h1>Sign In Page</h1> */}
+      <h2>Already have an account</h2>
       <span> Sign in with your email and password</span>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <div>
           <FormInput
             label={"Email"}
@@ -81,7 +99,7 @@ const SignInForm = () => {
         </div>
         <div className="btn-container">
           <Button type="submit">Sign In</Button>
-          <Button buttonType={"google"} onClick={logGoogleUser}>
+          <Button type='button' buttonType={"google"} onClick={logGoogleUser}>
             Google Sign in
           </Button>
         </div>
