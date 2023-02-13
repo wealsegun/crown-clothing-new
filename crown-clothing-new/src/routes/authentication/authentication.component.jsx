@@ -37,8 +37,8 @@ const Authentication = () => {
   //   }
   return (
     <div>
-      <h1>Sign In Page</h1>
-      <button onClick={logGoogleUser}>Sign in with Google Poppup</button>
+      {/* <h1>Sign In Page</h1>
+      <button onClick={logGoogleUser}>Sign in with Google Poppup</button> */}
       {/* <button onClick={signInWithGoogleRedirect}>
         Sign in with Google Redirect
       </button> */}
