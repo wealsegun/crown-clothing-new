@@ -7,9 +7,10 @@ import {
 import { useEffect } from "react";
 import { getRedirectResult } from "firebase/auth";
 import SignUp from "../../components/signup-form/signup-form.component";
+import SignInForm from "../../components/signin-form/signin-form.component";
 // import { async } from "@firebase/util";cons
 
-const SignIn = () => {
+const Authentication = () => {
   useEffect(() => {
    ( async() => {
         const response = await getRedirectResult(auth);
@@ -41,9 +42,10 @@ const SignIn = () => {
       {/* <button onClick={signInWithGoogleRedirect}>
         Sign in with Google Redirect
       </button> */}
+      <SignInForm/>
       <SignUp/>
     </div>
   );
 };
 
-export default SignIn;
+export default Authentication;
