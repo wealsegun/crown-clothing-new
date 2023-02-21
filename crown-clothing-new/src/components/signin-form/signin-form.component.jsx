@@ -19,8 +19,11 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(signInForm);
   const { email, password } = formFields;
 
-  const {currentUser}=  useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   console.log(currentUser);
+  // const val = useContext(UserContext);
+  // console.log(val);
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(signInForm);
@@ -39,6 +42,7 @@ const SignInForm = () => {
       const response = await signInAuthWithEmailAndPassword(email, password);
       console.log(response);
       resetFormFields();
+      setCurrentUser(response);
     } catch (error) {
       console.log(error.code);
       switch (error.code) {
@@ -103,7 +107,7 @@ const SignInForm = () => {
         </div>
         <div className="btn-container">
           <Button type="submit">Sign In</Button>
-          <Button type='button' buttonType={"google"} onClick={logGoogleUser}>
+          <Button type="button" buttonType={"google"} onClick={logGoogleUser}>
             Google Sign in
           </Button>
         </div>
