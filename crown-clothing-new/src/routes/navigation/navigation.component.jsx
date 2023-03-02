@@ -10,7 +10,6 @@ const Navigation = () => {
 
   const signOutHandler = async () => {
     await signOutUser();
-    //  console.log(res);
     setCurrentUser(null);
   };
 
