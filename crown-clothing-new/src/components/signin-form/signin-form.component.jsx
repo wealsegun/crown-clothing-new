@@ -23,7 +23,7 @@ const SignInForm = () => {
   console.log(currentUser);
   // const val = useContext(UserContext);
   // console.log(val);
-  const { setCurrentUser } = useContext(UserContext);
+  // const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(signInForm);
@@ -35,14 +35,14 @@ const SignInForm = () => {
   };
 
   const handleLogin = async (event) => {
-    console.log(event);
+    // console.log(event);
     event.preventDefault();
-    console.log(formFields);
+    // console.log(formFields);
     try {
       const response = await signInAuthWithEmailAndPassword(email, password);
-      console.log(response);
+      // console.log(response);
       resetFormFields();
-      setCurrentUser(response);
+      // setCurrentUser(response);
     } catch (error) {
       console.log(error.code);
       switch (error.code) {
@@ -74,8 +74,8 @@ const SignInForm = () => {
   }, []);
 
   const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
+    // await createUserDocumentFromAuth(user);
     // console.log(userDocRef);
   };
 
