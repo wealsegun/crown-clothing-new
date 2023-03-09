@@ -6,12 +6,12 @@ import "./navigation.styles.scss";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { CartContext } from "../../contexts/cart.context";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
-import CartDropDwon from "../../components/cart-dropdown/cart-dropdown.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const {isCartOpen} = useContext(CartContext);
+  const { isCartOpen } = useContext(CartContext);
   console.log(currentUser);
+  console.log(isCartOpen);
 
   // const signOutHandler = async () => {
   //   await signOutUser();
@@ -44,12 +44,10 @@ const Navigation = () => {
             </Link>
           )}
 
-
-         <CartIcon/>
-         {
-          isCartOpen && <CartDropdown/>
-         }
+          <CartIcon />
+         
         </div>
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
