@@ -28,7 +28,7 @@ const Navigation = () => {
           <Link className="nav-link" to={"/shop"}>
             SHOP
           </Link>
-          <Link className="nav-link" to={"/shop"}>
+          <Link className="nav-link" to={"/contact"}>
             Contact
           </Link>
           {currentUser ? (
